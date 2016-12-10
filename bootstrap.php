@@ -24,7 +24,7 @@ function getEntityManager()
 
     $config = Setup::createAnnotationMetadataConfiguration(
         array(ENTITY_DIR),  // paths to mapped entities
-        DEBUG,              // developper mode
+        DEBUG,              // developer mode
         PROXY_DIR,          // Proxy dir
         null,               // Cache implementation
         false               // use Simple Annotation Reader

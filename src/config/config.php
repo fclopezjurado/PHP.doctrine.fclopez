@@ -3,7 +3,7 @@
 /*
  * configuración SGBD
  */
-define('DATABASE_DBNAME', 'miw16_results');
+define('DATABASE_DBNAME', 'doctrine');
 define('DATABASE_USER', 'root');
 define('DATABASE_PASSWD', '');
 define('DATABASE_DRIVER', 'pdo_mysql');

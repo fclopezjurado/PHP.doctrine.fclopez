@@ -1,4 +1,4 @@
-<?php   // src/Entity/User.php
+<?php // src/Entity/User.php
 
 namespace MiW16\Results\Entity;
 
@@ -19,6 +19,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User implements \JsonSerializable
 {
+    const CLASS_NAME = __CLASS__;
+    const DATE_FORMAT = 'Y/m/d H:i:s';
+    const LAST_LOGIN_ATTRIBUTE = 'lastLogin';
+    const TOKEN_ATTRIBUTE = 'token';
+    const ID_ATTRIBUTE = 'id';
+
     /**
      * @var integer
      *
@@ -84,11 +90,96 @@ class User implements \JsonSerializable
     }
 
     /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername(string $username)
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @param bool $enabled
+     */
+    public function setEnabled(bool $enabled)
+    {
+        $this->enabled = $enabled;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword(string $password)
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @param \DateTime $lastLogin
+     */
+    public function setLastLogin(\DateTime $lastLogin)
+    {
+        $this->lastLogin = $lastLogin;
+    }
+
+    /**
+     * @return string
+     */
+    public function getToken(): string
+    {
+        return $this->token;
+    }
+
+    /**
+     * @param string $token
+     */
+    public function setToken(string $token)
+    {
+        $this->token = $token;
+    }
+
+    /**
      * @inheritDoc
      */
-    public function __toString(): string
+    function __toString(): string
     {
-        // TODO
+        $attributes = get_object_vars($this);
+        $toString = get_class($this) . PHP_EOL . '(' . PHP_EOL;
+
+        foreach ($attributes as $attributeName => $attributeValue) {
+            if ($attributeName === User::LAST_LOGIN_ATTRIBUTE)
+                $toString .= '  [' . $attributeName . '] => ' . date_format($attributeValue, User::DATE_FORMAT)
+                    . PHP_EOL;
+            else
+                $toString .= '  [' . $attributeName . '] => ' . $attributeValue . PHP_EOL;
+        }
+
+        $toString .= ')';
+
+        return $toString;
     }
 
     /**
@@ -96,6 +187,6 @@ class User implements \JsonSerializable
      */
     public function jsonSerialize(): array
     {
-        // TODO
+        return get_object_vars($this);
     }
 }

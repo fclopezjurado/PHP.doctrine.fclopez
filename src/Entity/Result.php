@@ -18,6 +18,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Result implements \JsonSerializable
 {
+    const CLASS_NAME = __CLASS__;
+    const DATE_FORMAT = 'Y/m/d H:i:s';
+    const TIME_ATTRIBUTE = 'time';
+    const ID_ATTRIBUTE = 'id';
+    const USER_ATTRIBUTE = 'user';
+
     /**
      * @var integer
      *
@@ -68,12 +74,65 @@ class Result implements \JsonSerializable
     }
 
     /**
+     * @param int $id
+     */
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $result
+     */
+    public function setResult(int $result)
+    {
+        $this->result = $result;
+    }
+
+    /**
+     * @param \DateTime $time
+     */
+    public function setTime(\DateTime $time)
+    {
+        $this->time = $time;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+    }
+
+    /**
      * @return string
      * @link http://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.tostring
      */
     public function __toString(): string
     {
-        // TODO
+        $attributes = get_object_vars($this);
+        $toString = get_class($this) . PHP_EOL . '(' . PHP_EOL;
+
+        foreach ($attributes as $attributeName => $attributeValue) {
+            if ($attributeName === Result::TIME_ATTRIBUTE)
+                $toString .= '  [' . $attributeName . '] => ' . date_format($attributeValue, Result::DATE_FORMAT)
+                    . PHP_EOL;
+            else
+                $toString .= '  [' . $attributeName . '] => ' . $attributeValue . PHP_EOL;
+        }
+
+        $toString .= ')';
+
+        return $toString;
     }
 
     /**
@@ -81,6 +140,6 @@ class Result implements \JsonSerializable
      */
     public function jsonSerialize(): array
     {
-        // TODO
+        return get_object_vars($this);
     }
 }
