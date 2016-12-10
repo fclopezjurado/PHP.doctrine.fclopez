@@ -10,6 +10,7 @@
 namespace MiW16\Results\Scripts\Users;
 
 use Doctrine\ORM\EntityRepository;
+use MiW16\Results\Entity\Result;
 use MiW16\Results\Entity\User;
 use Doctrine\ORM\EntityManager;
 
@@ -182,6 +183,12 @@ class DeleteUserScriptController
                 exit;
             }
         }
+
+        $this->setEntityRepository(Result::CLASS_NAME);
+        $results = $this->entityRepository->findBy(array(Result::USER_ATTRIBUTE => $user));
+
+        foreach ($results as $result)
+            $this->entityManager->remove($result);
 
         $userID = $user->getId();
 
