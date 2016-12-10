@@ -13,6 +13,8 @@
     "autoload": {
         "psr-4": {
             "MiW16\\Results\\Entity\\": "src/Entity/",
+            "MiW16\\Results\\Scripts\\Users\\": "src/scripts/users/",
+            "MiW16\\Results\\Scripts\\Results\\": "src/scripts/results/",
             "MiW16\\Results\\": "src/"
         }
     },
