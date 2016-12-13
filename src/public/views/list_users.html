@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<section ng-controller="ListUsersController as listUsersController" ng-init="listUsersController.init()">
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8 formContainer">
+            <fieldset class="formBorder">
+                <legend class="formLegend">List Users</legend>
+                <form class="form-horizontal" role="form" ng-submit="listUsersController.list()">
+                    <div class="form-group">
+                        <label for="listType" class="col-sm-2 control-label">
+                            List type:
+                        </label>
+                        <div class="col-sm-10">
+                            <select ng-model="listUsersController.listType"
+                                    ng-change="listUsersController.changeListType()" class="form-control" id="listType"
+                                    required="required">
+                                <option ng-repeat="listType in listUsersController.listTypes"
+                                        value="{{listType.value}}">{{listType.text}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-show="listUsersController.listByIDIsVisible">
+                        <label for="listByID" class="col-sm-2 control-label">
+                            User ID:
+                        </label>
+                        <div class="col-sm-10">
+                            <select ng-model="listUsersController.listByID" class="form-control" id="listByID"
+                                    required="required">
+                                <option ng-repeat="user in listUsersController.users"
+                                        value="{{user.id}}">{{user.id}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-show="listUsersController.listByTokenIsVisible">
+                        <label for="listByToken" class="col-sm-2 control-label">
+                            User token:
+                        </label>
+                        <div class="col-sm-10">
+                            <select ng-model="listUsersController.listByToken" class="form-control" id="listByToken"
+                                    required="required">
+                                <option ng-repeat="user in listUsersController.users"
+                                        value="{{user.token}}">{{user.token}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <span class="error">{{listUsersController.error}}</span>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-default">
+                            List
+                        </button>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6 formContainer">
+            <fieldset class="formBorder">
+                <legend class="formLegend">Output</legend>
+                <label class="error" style="word-wrap: break-word;">{{listUsersController.output}}</label>
+            </fieldset>
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+    <br /><br />
+</section>

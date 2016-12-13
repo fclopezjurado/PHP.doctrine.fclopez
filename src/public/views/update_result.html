@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<section ng-controller="UpdateResultController as updateResultController" ng-init="updateResultController.init()">
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8 formContainer">
+            <fieldset class="formBorder">
+                <legend class="formLegend">Update Result</legend>
+                <form class="form-horizontal" role="form" ng-submit="updateResultController.update()">
+                    <div class="form-group">
+                        <label for="id" class="col-sm-2 control-label">
+                            Result to update:
+                        </label>
+                        <div class="col-sm-10">
+                            <select ng-model="updateResultController.id"
+                                    ng-change="updateResultController.changeResult()" class="form-control"
+                                    id="id" required="required">
+                                <option ng-repeat="result in updateResultController.results" value="{{result.id}}">
+                                    {{result.result + ' (User ID: ' + result.user.id + ')'}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="result" class="col-sm-2 control-label">
+                            Result:
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" ng-model="updateResultController.result" class="form-control" id="result"
+                                   placeholder="result" required="required"/>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <span class="error">{{updateResultController.error}}</span>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-default">
+                            Update
+                        </button>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6 formContainer">
+            <fieldset class="formBorder">
+                <legend class="formLegend">Output</legend>
+                <label class="error" style="word-wrap: break-word;">{{updateResultController.output}}</label>
+            </fieldset>
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+    <br /><br />
+</section>
