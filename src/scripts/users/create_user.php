@@ -10,7 +10,7 @@
 namespace MiW16\Results\Scripts\Users;
 
 use Doctrine\ORM\EntityRepository;
-use MiW16\Results\Entity\User;
+use MiW16\Results\Models\User;
 use Doctrine\ORM\EntityManager;
 
 require_once __DIR__ . '/../../../bootstrap.php';

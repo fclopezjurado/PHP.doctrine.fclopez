@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctrine PHP ECP1</title>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link rel="stylesheet" href="css/navigationBar.css">
+    <script src="lib/jquery-3.1.1-dist/jquery-3.1.1.min.js"></script>
+    <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="lib/angular-1.6.0-rc.2/angular.min.js"></script>
+    <script src="lib/angular-1.6.0-rc.2/angular-route.min.js"></script>
+    <script src="lib/angular-1.6.0-rc.2/angular-css.min.js"></script>
+    <script src="application.js"></script>
+    <script src="services/getUserByID.service.js"></script>
+    <script src="services/getUserByToken.service.js"></script>
+    <script src="services/newUser.service.js"></script>
+    <script src="services/getUsers.service.js"></script>
+    <script src="services/deleteUser.service.js"></script>
+    <script src="services/deleteResultByID.service.js"></script>
+    <script src="services/updateUser.service.js"></script>
+    <script src="services/getResultByID.service.js"></script>
+    <script src="services/getResultsByUserID.service.js"></script>
+    <script src="services/getResults.service.js"></script>
+    <script src="services/deleteResults.service.js"></script>
+    <script src="services/deleteResultsByUserID.service.js"></script>
+    <script src="services/newResult.service.js"></script>
+    <script src="services/updateResult.service.js"></script>
+    <script src="controllers/newUser.controller.js"></script>
+    <script src="controllers/deleteUser.controller.js"></script>
+    <script src="controllers/listUsers.controller.js"></script>
+    <script src="controllers/updateUser.controller.js"></script>
+    <script src="controllers/listResults.controller.js"></script>
+    <script src="controllers/deleteResults.controller.js"></script>
+    <script src="controllers/newResult.controller.js"></script>
+    <script src="controllers/updateResult.controller.js"></script>
+    <script src="config/routes.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row navigationBar">
+        <div class="col-md-12">
+            <div id="logoContainer">
+                <a href="https://www.upm.es">
+                    <img id="logo" alt="ETSISI Icon" src="img/etsisi.png" class="img-rounded smallRightMargin"/>
+                </a>
+                <span id="logoTitle">Doctrine PHP ECP1</span>
+            </div>
+            <ul class="nav nav-pills">
+                <li>
+                    <a ng-href="#!/new_user">New User</a>
+                </li>
+                <li>
+                    <a ng-href="#!/delete_user">Delete User</a>
+                </li>
+                <li>
+                    <a ng-href="#!/list_users">List Users</a>
+                </li>
+                <li>
+                    <a ng-href="#!/update_user">Update User</a>
+                </li>
+                <li>
+                    <a ng-href="#!/new_result">New Result</a>
+                </li>
+                <li>
+                    <a ng-href="#!/delete_results">Delete Results</a>
+                </li>
+                <li>
+                    <a ng-href="#!/list_results">List Results</a>
+                </li>
+                <li>
+                    <a ng-href="#!/update_result">Update Result</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <section ng-view></section>
+</div>
+</body>
+</html>

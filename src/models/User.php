@@ -1,6 +1,6 @@
-<?php // src/Entity/User.php
+<?php // src/models/User.php
 
-namespace MiW16\Results\Entity;
+namespace MiW16\Results\Models;
 
 use Doctrine\ORM\Mapping as ORM;
 

@@ -1,0 +1,29 @@
+/* CSS styles for all forms */
+
+.formContainer {
+    background-color: #96ee7e;
+    padding: 20px;
+}
+
+.formBorder {
+    border: 1px black solid;
+    border-radius: 5px;
+    margin: auto;
+    padding: 20px;
+}
+
+.formLegend {
+    border: none;
+    width: inherit;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.centerText {
+    text-align: center;
+}
+
+span {
+    font-style: italic;
+}
+

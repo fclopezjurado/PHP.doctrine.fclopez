@@ -1,12 +1,12 @@
-<?php   // src/Entity/Result.php
+<?php   // src/models/Result.php
 
-namespace MiW16\Results\Entity;
+namespace MiW16\Results\Models;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class Result
- * @package MiW16\Results\Entity
+ * @package MiW16\Results\models
  *
  * @ORM\Entity
  * @ORM\Table(
