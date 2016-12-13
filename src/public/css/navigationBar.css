@@ -1,0 +1,33 @@
+/* CSS styles for navigation bar in all pages */
+
+body {
+    font-family: 'Roboto Slab', serif;
+    background: url("../img/padelBackground.jpg") no-repeat;
+    background-size: cover;
+}
+
+.navigationBar {
+    padding: 5px;
+    background-color: #96ee7e;
+}
+
+#logoContainer {
+    float: left;
+    margin-right: 20px;
+}
+
+#logo {
+    height: 40px;
+    width: 40px;
+}
+
+#logoTitle {
+    vertical-align: middle;
+    font-size: medium;
+    font-weight: bold;
+    color: #2b669a;
+}
+
+.smallRightMargin {
+    margin-right: 10px;
+}
