@@ -1,0 +1,116 @@
+# routes.yml
+---
+
+# route to check if a user token exists
+
+getUserByToken:
+    path:     /user/token/{token}
+    defaults:
+        controller: UserController
+        action: getUserByToken
+    requirements:
+        _method: GET
+
+newUser:
+    path:     /user/create
+    defaults:
+        controller: UserController
+        action: create
+    requirements:
+        _method: POST
+
+getUsers:
+    path:     /users
+    defaults:
+        controller: UserController
+        action: getUsers
+    requirements:
+        _method: GET
+
+deleteUser:
+    path:     /user/delete/{id}
+    defaults:
+        controller: UserController
+        action: delete
+    requirements:
+        _method: POST
+
+getUserByID:
+    path:     /user/id/{id}
+    defaults:
+        controller: UserController
+        action: getUserByID
+    requirements:
+        _method: GET
+
+updateUser:
+    path:     /user/update
+    defaults:
+        controller: UserController
+        action: update
+    requirements:
+        _method: POST
+
+getResults:
+    path:     /results
+    defaults:
+        controller: ResultController
+        action: getResults
+    requirements:
+        _method: GET
+
+getResultByID:
+    path:     /result/id/{id}
+    defaults:
+        controller: ResultController
+        action: getResultByID
+    requirements:
+        _method: GET
+
+getResultsByUserID:
+    path:     /results/user_id/{id}
+    defaults:
+        controller: ResultController
+        action: getResultsByUserID
+    requirements:
+        _method: GET
+
+deleteResults:
+    path:     /results/delete
+    defaults:
+        controller: ResultController
+        action: delete
+    requirements:
+        _method: POST
+
+deleteResultByID:
+    path:     /result/delete/id/{id}
+    defaults:
+        controller: ResultController
+        action: deleteResultByID
+    requirements:
+        _method: POST
+
+deleteResultsByUserID:
+    path:     /results/delete/user_id/{id}
+    defaults:
+        controller: ResultController
+        action: deleteResultsByUserID
+    requirements:
+        _method: POST
+
+newResult:
+    path:     /result/create
+    defaults:
+        controller: ResultController
+        action: create
+    requirements:
+        _method: POST
+
+updateResult:
+    path:     /result/update
+    defaults:
+        controller: ResultController
+        action: update
+    requirements:
+        _method: POST
